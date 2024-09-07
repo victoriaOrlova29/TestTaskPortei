@@ -13,7 +13,7 @@ public class TestAuthorizationForm extends BaseTest {
                 .openPracticePage()
                 .fillEmail(getEmail())
                 .fillPassword(getPassword())
-                .clickButton();
+                .clickAuthButton();
         Assert.assertEquals(automationForm.getInvalidEmailPassword().getText(), "Неверный E-Mail или пароль");
 
     }
@@ -22,7 +22,7 @@ public class TestAuthorizationForm extends BaseTest {
     public void emptyFields() {
         AutomationForm automationForm = new AutomationForm()
                 .openPracticePage()
-                .clickButton();
+                .clickAuthButton();
         Assert.assertEquals(automationForm.getEmailFormatError().getText(), "Неверный формат E-Mail");
     }
 
@@ -32,7 +32,7 @@ public class TestAuthorizationForm extends BaseTest {
                 .openPracticePage()
                 .fillEmail(getWrongEmail())
                 .fillPassword(getPassword())
-                .clickButton();
+                .clickAuthButton();
         Assert.assertEquals(automationForm.getEmailFormatError().getText(), "Неверный формат E-Mail");
     }
 
@@ -41,7 +41,7 @@ public class TestAuthorizationForm extends BaseTest {
         AutomationForm automationForm = new AutomationForm()
                 .openPracticePage()
                 .fillPassword(getPassword())
-                .clickButton();
+                .clickAuthButton();
         Assert.assertEquals(automationForm.getEmailFormatError().getText(), "Неверный формат E-Mail");
     }
 
@@ -50,14 +50,14 @@ public class TestAuthorizationForm extends BaseTest {
         AutomationForm automationForm = new AutomationForm()
                 .openPracticePage()
                 .fillEmail(getEmail())
-                .clickButton();
+                .clickAuthButton();
         Assert.assertEquals(automationForm.getInvalidEmailPassword().getText(), "Неверный E-Mail или пароль");
     }
 
     @Test(description = "Форма авторизации. Правильные данные")
     public void correctData() {
         AutomationForm automationForm = new AutomationForm()
-                .authorize(getCorrectEmail(),getCorrectPassword());
+                .authorize(getCorrectEmail(), getCorrectPassword());
         Assert.assertTrue(automationForm.getDataSend().isDisplayed());
     }
 

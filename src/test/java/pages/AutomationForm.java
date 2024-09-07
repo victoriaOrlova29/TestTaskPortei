@@ -14,7 +14,7 @@ public class AutomationForm extends BasePage {
     private WebElement password;
 
     @FindBy(id = "authButton")
-    private WebElement clickauthButton;
+    private WebElement authButton;
 
     @FindBy(id = "invalidEmailPassword")
     private WebElement invalidEmailPassword;
@@ -37,11 +37,8 @@ public class AutomationForm extends BasePage {
     @FindBy(id = "dataGender")
     private WebElement dataGender;
 
-   @FindBy(xpath = "//select[@id='dataGender']/option[2]")
+    @FindBy(xpath = "//select[@id='dataGender']/option[2]")
     private WebElement womanGender;
-
-    @FindBy(xpath = "//div[@class='uk-modal uk-open']//div[@class='uk-margin uk-modal-content']/text()")
-    private WebElement modalWindow;
 
     @FindBy(xpath = "//button[text()='Ok']")
     private WebElement buttonOk;
@@ -81,8 +78,8 @@ public class AutomationForm extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-   public WebElement getInvalidEmailPassword() {
-     return invalidEmailPassword;
+    public WebElement getInvalidEmailPassword() {
+        return invalidEmailPassword;
     }
 
     public WebElement getEmailFormatError() {
@@ -97,10 +94,6 @@ public class AutomationForm extends BasePage {
         return dataSend;
     }
 
-    public WebElement getModalWindow() {
-        return modalWindow;
-    }
-
     public WebElement getCheckData() {
         return checkData;
     }
@@ -108,9 +101,11 @@ public class AutomationForm extends BasePage {
     public WebElement getCheckGender() {
         return checkGender;
     }
+
     public WebElement getCheckChoice1() {
         return checkChoice1;
     }
+
     public WebElement getCheckChoice2() {
         return checkChoice2;
     }
@@ -126,14 +121,14 @@ public class AutomationForm extends BasePage {
     }
 
     @Step("Заполняем E-mail")
-    public AutomationForm fillEmail (String emailFill) {
-        email.sendKeys(emailFill);
+    public AutomationForm fillEmail(String authEmail) {
+        email.sendKeys(authEmail);
         return new AutomationForm();
     }
 
     @Step("Заполняем Пароль")
-    public AutomationForm fillPassword (String passwordFill) {
-        password.sendKeys(passwordFill);
+    public AutomationForm fillPassword(String authPassword) {
+        password.sendKeys(authPassword);
         return new AutomationForm();
     }
 
@@ -142,13 +137,13 @@ public class AutomationForm extends BasePage {
         openPracticePage();
         email.sendKeys(emailData);
         password.sendKeys(passwordData);
-        clickButton();
+        clickAuthButton();
         return new AutomationForm();
     }
 
     @Step("Нажимаем вход ")
-    public AutomationForm clickButton() {
-        clickauthButton.click();
+    public AutomationForm clickAuthButton() {
+        authButton.click();
         return new AutomationForm();
     }
 
@@ -159,56 +154,56 @@ public class AutomationForm extends BasePage {
     }
 
     @Step("Заполняем E-mail2")
-    public AutomationForm fillDataEmail (String emailFill) {
-        dataEmail.sendKeys(emailFill);
+    public AutomationForm fillDataEmail(String email) {
+        dataEmail.sendKeys(email);
         return new AutomationForm();
     }
 
     @Step("Заполняем Имя")
-    public AutomationForm fillName (String nameFill) {
-        dataName.sendKeys(nameFill);
+    public AutomationForm fillName(String name) {
+        dataName.sendKeys(name);
         return new AutomationForm();
     }
 
     @Step("Заполняем пол Женский")
-    public AutomationForm dataGenderFemale () {
+    public AutomationForm dataGenderFemale() {
         dataGender.click();
         womanGender.click();
         return new AutomationForm();
     }
 
     @Step("Выбираем ч/б Вариант 1.1")
-    public AutomationForm selectDataCheck11 () {
+    public AutomationForm selectDataCheck11() {
         dataCheck11.click();
         return new AutomationForm();
     }
 
     @Step("Выбираем ч/б Вариант 1.2")
-    public AutomationForm selectDataCheck12 () {
+    public AutomationForm selectDataCheck12() {
         dataCheck12.click();
         return new AutomationForm();
     }
 
     @Step("Выбираем Вариант 2.1")
-    public AutomationForm dataSelect21 () {
+    public AutomationForm dataSelect21() {
         dataSelect21.click();
         return new AutomationForm();
     }
 
     @Step("Выбираем Вариант 2.2")
-    public AutomationForm dataSelect22 () {
+    public AutomationForm dataSelect22() {
         dataSelect22.click();
         return new AutomationForm();
     }
 
     @Step("Выбираем Вариант 2.3")
-    public AutomationForm dataSelect23 () {
+    public AutomationForm dataSelect23() {
         dataSelect23.click();
         return new AutomationForm();
     }
 
     @Step("Нажимаем кнопку ОК")
-    public AutomationForm buttonOk () {
+    public AutomationForm buttonOk() {
         buttonOk.click();
         return new AutomationForm();
     }

@@ -14,18 +14,23 @@ public class FakeUsersData {
     public static String getPassword() {
         return PASSWORD;
     }
+
     public static String getEmail() {
         return EMAIL;
     }
+
     public static String getWrongEmail() {
         return WRONG_EMAIL;
     }
+
     public static String getCorrectPassword() {
         return CORRECT_PASSWORD;
     }
+
     public static String getCorrectEmail() {
         return CORRECT_EMAIL;
     }
+
     public static String getName() {
         return NAME;
     }

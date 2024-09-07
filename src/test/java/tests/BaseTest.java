@@ -19,7 +19,7 @@ public abstract class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(80, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         BasePage.setDriver(driver);
     }
 
